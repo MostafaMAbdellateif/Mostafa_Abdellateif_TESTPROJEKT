@@ -7,11 +7,6 @@ class Notification extends Component {
     constructor(props) {
         super(props);
     }
-    componentDidMount(){
-    }
-
-    componentWillUnmount(){
-    }
 
     render() {
         return <NotificationView {...this.props} />;

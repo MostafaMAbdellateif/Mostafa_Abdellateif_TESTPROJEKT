@@ -21,5 +21,3 @@ export const Search = React.memo((props) => {
         </View>
     )
 })
-
-// export default memo(Search);

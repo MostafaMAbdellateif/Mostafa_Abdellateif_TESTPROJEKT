@@ -8,8 +8,7 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import AppStyles from '../../config/styles'
 import styles from './styles';
-import Icons from '../../config/icons';
-import { calcWidth, calcHeight } from '../../config/metrics';
+import { calcHeight } from '../../config/metrics';
 
 class ApartmentItem extends PureComponent {
 

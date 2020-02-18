@@ -25,8 +25,7 @@ class HomeView extends Component {
             showsVerticalScrollIndicator={false}
             style={styles.scene}
             contentContainerStyle={styles.sceneContent}>
-            <Text
-                style={styles.label}>
+            <Text style={styles.label}>
                 {"1 BHK Flats, Apartments near you"}
             </Text>
             <View style={styles.list}>
@@ -40,8 +39,7 @@ class HomeView extends Component {
                 />
             </View>
 
-            <Text
-                style={[styles.label, { marginTop: calcHeight(15) }]}>
+            <Text style={[styles.label, { marginTop: calcHeight(15) }]} >
                 {"2 BHK Flats, Apartments near you"}
             </Text>
             <View style={styles.list}>
@@ -58,7 +56,7 @@ class HomeView extends Component {
 
     );
 
-    keyExtractor = item => item.id.toString()
+    keyExtractor = item => item.id.toString() //keyExtractor for items to help in caching 
 
     renderItem = ({ item, index }) => {
         return (
@@ -73,7 +71,7 @@ class HomeView extends Component {
         this.props.navigation.navigate("Apartment", { item })
     }
 
-    EmptyRoute = () => (
+    EmptyRoute = () => ( // empty route
         <View style={styles.scene} />
     );
 

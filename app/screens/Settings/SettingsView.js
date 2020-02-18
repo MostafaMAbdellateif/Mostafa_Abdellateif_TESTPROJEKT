@@ -7,9 +7,6 @@ class SettingsView extends Component {
         super(props);
     }
 
-    componentDidMount(){
-    }
-
     render() {
         return (
             <View style={styles.container}>

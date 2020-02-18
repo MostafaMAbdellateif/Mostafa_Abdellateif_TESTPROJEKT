@@ -21,12 +21,14 @@ class ApartmentView extends Component {
                 style={styles.container}
                 contentContainerStyle={styles.scrollContent}
             >
+                {/* ----- the image swiper ------ */}
                 <View style={styles.header}>
                     <ImageSwiper
                         images={ApartmentData.extraImages}
                         onBack={this.props.onBack}
                     />
                 </View>
+                {/* ----- the room info ----- */}
                 <View style={styles.content}>
                     <Text style={styles.title}>
                         {`${ApartmentData.details.name} ${ApartmentData.details.status}`}

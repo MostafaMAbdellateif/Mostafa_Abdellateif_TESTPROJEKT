@@ -14,7 +14,7 @@ class FooterItem extends PureComponent {
     }
 
     pressHandler = () => {
-        if (!this.props.isFocused) {
+        if (!this.props.isFocused) { // if it's already open don't navigate to it again
             this.props.onTabPress(this.props.name)
         }
     }

@@ -37,10 +37,11 @@ class FooterBar extends Component {
 
     render() {
         let { state } = this.props
+        // mapping anaimation to the icon uncder line
         let itemUnderLinePosition = this.state.underlinePosition.interpolate({
             inputRange: [0, 1, 2, 3],
             outputRange: [0, DeiceWidthPercentToNumber(itemWidth), DeiceWidthPercentToNumber(itemWidth) * 2, DeiceWidthPercentToNumber(itemWidth) * 3]
-        })
+        }) // in case phone is rotated we should calulate the right translation value (because the heigh and width will flip)
 
         return (
             <View style={styles.container}>
@@ -56,7 +57,8 @@ class FooterBar extends Component {
                         );
                     })}
                 </View>
-                <Animated.View style={[styles.underLine, {transform: [{translateX: itemUnderLinePosition}] }]} />
+                {/* the under line  */}
+                <Animated.View style={[styles.underLine, {transform: [{translateX: itemUnderLinePosition}] }]} /> 
             </View>
         );
     }

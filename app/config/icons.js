@@ -4,6 +4,7 @@ import Ionicons from 'react-native-vector-icons/dist/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
 import Feather from 'react-native-vector-icons/dist/Feather';
 import FontAwesome from 'react-native-vector-icons/dist/FontAwesome';
+import FontAwesome5 from 'react-native-vector-icons/dist/FontAwesome5';
 
 type Props = {
     name: String,
@@ -33,6 +34,9 @@ function Icons(props: Props) {
 
         case "House":
             return <FontAwesome  {...props} name="home" />
+
+        case "Plus":
+            return <FontAwesome5  {...props} name="plus" />
 
         default:
             return null

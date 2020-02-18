@@ -7,11 +7,6 @@ class Settings extends Component {
     constructor(props) {
         super(props);
     }
-    componentDidMount(){
-    }
-
-    componentWillUnmount(){
-    }
 
     render() {
         return <SettingsView {...this.props} />;

@@ -7,7 +7,7 @@ class Apartment extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            ApartmentData: props.route.params ? props.route.params.item : {},
+            ApartmentData: props.route.params ? props.route.params.item : {}, //get the clicked item data from previous screen
         }
     }
 

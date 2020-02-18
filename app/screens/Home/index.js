@@ -15,7 +15,7 @@ class Home extends Component {
 
 function mapStateToProps(state) {
     return {
-        Apartments: state.homeReducer.Apartments
+        Apartments: state.homeReducer.Apartments //get the apartments data from reducer
     };
   }
   function mapDispatchToProps(dispatch) {

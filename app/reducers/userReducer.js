@@ -5,17 +5,22 @@ import createReducer from '../lib/createReducer';
 import * as types from '../actions/types';
 
 const initialState = {
-    profile:{}
+    profile: {
+        "picture": "https://www.winchcombe.co.uk/wp-content/uploads/2017/04/male-silhouette.png",
+        "Name": "Mostafa",
+        "Location": "Egypt",
+        "E-mail": "mostafaamohammeddd@gmail.com",
+        "contactDetails": false,
+        "enableLocation": true
+    }
 };
 
 export const userReducer = createReducer(initialState, {
-    //Save data
-    // [types.SAVE_PRESIST_REDUCER](state,action) {
-    //     return { 
-    //         ...state, 
-    //         data:{
-    //             ...state.data,
-    //             [action.payload.reducerVariable]:action.response} 
-    //         };
-    // },
+    // update profile data
+    [types.UPDATE_PROFILE](state, action) {
+        return {
+            ...state,
+            profile: { ...state.profile, ...action.newData }
+        };
+    }
 });
