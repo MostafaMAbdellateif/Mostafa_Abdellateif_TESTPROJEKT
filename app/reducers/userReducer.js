@@ -10,12 +10,12 @@ const initialState = {
 
 export const userReducer = createReducer(initialState, {
     //Save data
-    [types.SAVE_PRESIST_REDUCER](state,action) {
-        return { 
-            ...state, 
-            data:{
-                ...state.data,
-                [action.payload.reducerVariable]:action.response} 
-            };
-    },
+    // [types.SAVE_PRESIST_REDUCER](state,action) {
+    //     return { 
+    //         ...state, 
+    //         data:{
+    //             ...state.data,
+    //             [action.payload.reducerVariable]:action.response} 
+    //         };
+    // },
 });

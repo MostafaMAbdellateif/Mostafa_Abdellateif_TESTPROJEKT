@@ -7,11 +7,6 @@ class Home extends Component {
     constructor(props) {
         super(props);
     }
-    componentDidMount(){
-    }
-
-    componentWillUnmount(){
-    }
 
     render() {
         return <HomeView {...this.props} />;
@@ -20,6 +15,7 @@ class Home extends Component {
 
 function mapStateToProps(state) {
     return {
+        Apartments: state.homeReducer.Apartments
     };
   }
   function mapDispatchToProps(dispatch) {

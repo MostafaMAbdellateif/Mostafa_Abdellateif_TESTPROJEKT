@@ -1,21 +1,81 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { View, Text, FlatList } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import styles from './styles';
-import Octicons from 'react-native-vector-icons/dist/Octicons';
-import { Search } from '../../components';
+import { Search, ApartmentItem, TabSwiper } from '../../components';
+import { calcHeight } from '../../config/metrics';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view'
 
 class HomeView extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            routes: [
+                { key: 'first', title: 'Near Me' },
+                { key: 'second', title: 'Explore city' },
+                { key: 'third', title: 'Popular' },
+                { key: 'fourth', title: 'View Map' },
+            ]
+        }
     }
 
-    componentDidMount() {
+    FirstRoute = () => (
+        <KeyboardAwareScrollView
+            bounces={false}
+            showsVerticalScrollIndicator={false}
+            style={styles.scene}
+            contentContainerStyle={styles.sceneContent}>
+            <Text
+                style={styles.label}>
+                {"1 BHK Flats, Apartments near you"}
+            </Text>
+            <View style={styles.list}>
+                <FlatList
+                    contentContainerStyle={styles.listContent}
+                    data={this.props.Apartments}
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    keyExtractor={this.keyExtractor}
+                    renderItem={this.renderItem}
+                />
+            </View>
+
+            <Text
+                style={[styles.label, { marginTop: calcHeight(15) }]}>
+                {"2 BHK Flats, Apartments near you"}
+            </Text>
+            <View style={styles.list}>
+                <FlatList
+                    contentContainerStyle={styles.listContent}
+                    data={this.props.Apartments}
+                    horizontal={true}
+                    showsHorizontalScrollIndicator={false}
+                    keyExtractor={this.keyExtractor}
+                    renderItem={this.renderItem}
+                />
+            </View>
+        </KeyboardAwareScrollView>
+
+    );
+
+    keyExtractor = item => item.id.toString()
+
+    renderItem = ({ item, index }) => {
+        return (
+            <ApartmentItem
+                item={item}
+                onClick={this.navigateHandler}
+            />
+        )
     }
 
-    navigateHandler = () => {
-        this.props.navigation.navigate("Apartment")
+    navigateHandler = (item) => {
+        this.props.navigation.navigate("Apartment", { item })
     }
+
+    EmptyRoute = () => (
+        <View style={styles.scene} />
+    );
 
     render() {
         return (
@@ -23,14 +83,16 @@ class HomeView extends Component {
                 <View style={styles.header}>
                     <Search />
                 </View>
-                {/* <Text>Home</Text>
-                <Octicons
-                name="home"
-                size={20}
-                />
-                <TouchableOpacity onPress={this.navigateHandler}>
-                    <Text>Apartments</Text>
-                </TouchableOpacity> */}
+
+                <View style={styles.content}>
+                    <TabSwiper
+                        routes={this.state.routes}
+                        FirstRoute={this.FirstRoute}
+                        SecondRoute={this.EmptyRoute}
+                        ThirdRoute={this.EmptyRoute}
+                        FourthRoute={this.EmptyRoute}
+                    />
+                </View>
             </SafeAreaView>
         );
     }

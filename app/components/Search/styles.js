@@ -6,8 +6,8 @@ const styles = StyleSheet.create({
     container: {
         marginTop: calcHeight(15),
         width: calcWidthRatio(340),
-        height: calcHeight(40),
-        paddingHorizontal: calcWidthRatio(10),
+        height: calcHeight(35),
+        paddingLeft: calcWidthRatio(15),
         flexDirection: "row",
         alignSelf: 'center',
         alignItems: 'center',
@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
         height: '100%',
         margin: 0,
         paddingHorizontal: calcWidth(15),
+        fontSize: calcWidth(12),
         color: AppStyles.color.COLOR_GREY,
         // backgroundColor: 'red'
     }

@@ -3,6 +3,7 @@ import SimpleLineIcons from 'react-native-vector-icons/dist/SimpleLineIcons';
 import Ionicons from 'react-native-vector-icons/dist/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/dist/MaterialIcons';
 import Feather from 'react-native-vector-icons/dist/Feather';
+import FontAwesome from 'react-native-vector-icons/dist/FontAwesome';
 
 type Props = {
     name: String,
@@ -16,16 +17,22 @@ function Icons(props: Props) {
             return <SimpleLineIcons  {...props} name="home" />
 
         case "Settings":
-            return <Ionicons {...props} name="ios-options"  />
+            return <Ionicons {...props} name="ios-options" />
 
         case "Notification":
             return <MaterialIcons {...props} name="notifications-none" />
 
         case "Profile":
-            return <Feather  {...props} name="user"/>
+            return <Feather {...props} name="user" />
 
         case "Search":
-            return <Feather  {...props} name="search"/>
+            return <Feather {...props} name="search" />
+
+        case "Back":
+            return <Ionicons {...props} name="ios-arrow-round-back" />
+
+        case "House":
+            return <FontAwesome  {...props} name="home" />
 
         default:
             return null

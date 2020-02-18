@@ -1,5 +1,5 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, TransitionPresets, TransitionSpecs } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 // ---------- screens ----------
 import Home from '../screens/Home';
@@ -14,9 +14,12 @@ import FooterBar from '../components/FooterBar';
 const HomeScreens = createStackNavigator();
 function HomeStack() {
   return (
-    <HomeScreens.Navigator headerMode={"none"}>
+    <HomeScreens.Navigator initialRouteName="Home" headerMode={"none"}>
       <HomeScreens.Screen name="Home" component={Home} />
-      <HomeScreens.Screen name="Apartment" component={Apartment}/>
+      <HomeScreens.Screen
+        name="Apartment"
+        component={Apartment}
+      />
     </HomeScreens.Navigator>
   );
 }
