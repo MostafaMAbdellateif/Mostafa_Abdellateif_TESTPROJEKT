@@ -24,6 +24,9 @@ function Icons(props: Props) {
         case "Profile":
             return <Feather  {...props} name="user"/>
 
+        case "Search":
+            return <Feather  {...props} name="search"/>
+
         default:
             return null
     }

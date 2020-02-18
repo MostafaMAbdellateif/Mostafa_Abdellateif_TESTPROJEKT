@@ -1,8 +1,9 @@
 import { StyleSheet } from 'react-native';
-import { calcHeight, calcWidth } from '../../config/metrics';
+import { calcHeight, calcWidth, calcWidthRatio } from '../../config/metrics';
 import AppStyles from '../../config/styles';
+import { percentToNumber } from '../../utils/stringUtils';
 
-export const itemWidth = calcWidth(375 / 4)  //375 is the screen width, and there are 4 footer item
+export const itemWidth = calcWidthRatio(375 / 4)  //375 is the screen width, and there are 4 footer item
 
 const styles = StyleSheet.create({
     container: {
@@ -22,8 +23,8 @@ const styles = StyleSheet.create({
         justifyContent: "center"
     },
     underLine:{
-        width: itemWidth - calcWidth(20),
-        marginHorizontal: calcWidth(10),
+        width: calcWidthRatio((375 / 4) - 20),
+        marginHorizontal: calcWidthRatio(10),
         height: "6%",
         backgroundColor: AppStyles.color.COLOR_PRIMARY
     }

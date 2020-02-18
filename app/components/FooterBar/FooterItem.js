@@ -26,7 +26,7 @@ class FooterItem extends PureComponent {
                 onPress={this.pressHandler}>
                 <Icons
                     name={this.props.name}
-                    color={this.props.isFocused ? AppStyles.color.COLOR_PRIMARY : AppStyles.color.COLOR_GREY}
+                    color={this.props.isFocused ? AppStyles.color.COLOR_PRIMARY : AppStyles.color.COLOR_SECONDARY}
                     size={calcWidth(20)}
                 />
             </TouchableOpacity>

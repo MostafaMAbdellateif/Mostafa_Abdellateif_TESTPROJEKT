@@ -11,11 +11,21 @@ import Profile from '../screens/Profile';
 import FooterBar from '../components/FooterBar';
 // --------------------------------------
 
+const HomeScreens = createStackNavigator();
+function HomeStack() {
+  return (
+    <HomeScreens.Navigator headerMode={"none"}>
+      <HomeScreens.Screen name="Home" component={Home} />
+      <HomeScreens.Screen name="Apartment" component={Apartment}/>
+    </HomeScreens.Navigator>
+  );
+}
+
 const Footer = createBottomTabNavigator();
 function MyFooter() {
   return (
     <Footer.Navigator tabBar={props => <FooterBar {...props} />}>
-      <Footer.Screen name="Home" component={Home} />
+      <Footer.Screen name="Home" component={HomeStack} />
       <Footer.Screen name="Settings" component={Settings} />
       <Footer.Screen name="Notification" component={Notification} />
       <Footer.Screen name="Profile" component={Profile} />
@@ -29,7 +39,6 @@ function App() {
   return (
     <Main.Navigator headerMode={"none"}>
       <Main.Screen name="Footer" component={MyFooter} />
-      <Main.Screen name="Apartment" component={Apartment}/>
     </Main.Navigator>
   );
 }

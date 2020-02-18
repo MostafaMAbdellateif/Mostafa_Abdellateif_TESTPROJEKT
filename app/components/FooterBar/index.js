@@ -7,6 +7,7 @@ import {
 } from 'react-native';
 import styles, { itemWidth } from './styles';
 import FooterItem from './FooterItem';
+import { DeiceWidthPercentToNumber } from '../../utils/stringUtils';
 
 class FooterBar extends Component {
     constructor(props) {
@@ -38,7 +39,7 @@ class FooterBar extends Component {
         let { state } = this.props
         let itemUnderLinePosition = this.state.underlinePosition.interpolate({
             inputRange: [0, 1, 2, 3],
-            outputRange: [0, itemWidth, itemWidth * 2, itemWidth * 3]
+            outputRange: [0, DeiceWidthPercentToNumber(itemWidth), DeiceWidthPercentToNumber(itemWidth) * 2, DeiceWidthPercentToNumber(itemWidth) * 3]
         })
 
         return (
@@ -47,6 +48,7 @@ class FooterBar extends Component {
                     {state.routes.map((route, index) => {
                         return (
                             <FooterItem
+                                key={route.key}
                                 name={route.name}
                                 onTabPress={this.onTabPress}
                                 isFocused={state.index === index}
